@@ -1,0 +1,31 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "containerEnv": {
+    "SHELL": "/bin/bash"
+  },
+  "remoteUser": "user",
+  "containerUser": "user",
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.gitconfig",
+      "target": "/home/user/.gitconfig",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.ssh",
+      "target": "/home/user/.ssh",
+      "type": "bind"
+    }
+  ],
+  "postCreateCommand": "src/main.sh"
+}
