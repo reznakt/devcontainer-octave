@@ -6,26 +6,32 @@
     "vscode": {
       "extensions": [
         "EditorConfig.EditorConfig",
-        "redhat.vscode-yaml"
+        "LucasFA.octaveexecution",
+        "ms-python.python",
+        "ms-vscode.jupyter",
+        "paulosilva.vsc-octave-debugger",
+        "redhat.vscode-yaml",
+        "toasty-technologies.octave",
+        "tusindfryd.octave-formatter"
       ]
     }
   },
   "containerEnv": {
     "SHELL": "/bin/bash"
   },
-  "remoteUser": "user",
-  "containerUser": "user",
+  "remoteUser": "jovyan",
+  "containerUser": "jovyan",
   "mounts": [
     {
       "source": "${localEnv:HOME}/.gitconfig",
-      "target": "/home/user/.gitconfig",
+      "target": "/home/jovyan/.gitconfig",
       "type": "bind"
     },
     {
       "source": "${localEnv:HOME}/.ssh",
-      "target": "/home/user/.ssh",
+      "target": "/home/jovyan/.ssh",
       "type": "bind"
     }
   ],
-  "postCreateCommand": "src/main.sh"
+  "postCreateCommand": ".devcontainer/postinstall.sh"
 }

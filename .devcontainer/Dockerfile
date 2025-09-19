@@ -1,5 +1,13 @@
-FROM alpine:3.22.1
+FROM quay.io/jupyter/base-notebook:2025-09-16 
 
-RUN apk add --no-cache bash bash-completion git openssh-client
+USER root
 
-RUN adduser -D user
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gnuplot octave git
+
+USER jovyan
+
+RUN pip install --no-cache-dir octave_kernel && \
+    python -m octave_kernel install --user
+
+ENV OCTAVE_EXECUTABLE=/usr/bin/octave

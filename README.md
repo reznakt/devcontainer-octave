@@ -1,3 +1,3 @@
-# devcontainer-metatemplate
+# devcontainer-octave
 
-This repository provides a (meta)template for creating templates for setting up development environments using devcontainers.
+This repository provides a template for setting up a GNU Octave development environment using devcontainers.
